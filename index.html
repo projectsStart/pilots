@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/pengupilots.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengu Pilot - Spaceship</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Home Screen -->
+      <div class="home-screen" id="home-screen">
+        <div class="home-background">
+          <img src="./public/lands/home.png" alt="Home Background" class="home-bg-image">
+        </div>
+        
+        <!-- Polly Agent -->
+        <div class="polly-agent" id="polly-agent">
+          <img src="/Polly_29.webp" alt="Polly Agent" class="polly-image" id="polly-image">
+          
+          <!-- Speech Bubble -->
+          <div class="speech-bubble" id="speech-bubble">
+            <div class="bubble-content" id="bubble-content">
+              Welcome home! How can I help you today?
+            </div>
+            <div class="bubble-arrow"></div>
+          </div>
+        </div>
+        
+        <!-- Chat Bar -->
+        <div class="home-chat-bar" id="home-chat-bar">
+          <input type="text" id="home-chat-input" placeholder="Talk to Polly..." class="home-chat-input">
+          <button id="home-send-button" class="home-send-button">Send</button>
+        </div>
+        
+        <!-- Return to Ship Button -->
+        <div class="return-button" id="return-button">
+          <span>🚀 Return to Ship</span>
+        </div>
+      </div>
+      
+      <!-- Spaceship Cockpit -->
+      <div class="spaceship-cockpit" id="spaceship-cockpit">
+        <!-- Cockpit background -->
+        <div class="cockpit-background">
+          <img src="/cabin.png" alt="Control Panel" class="cabin-image">
+        </div>
+        
+        <!-- Planet navigation area -->
+        <div class="planet-navigation">
+          <div class="planet planet-1" data-planet="frostbite">
+            <img src="/planets/p1.png" alt="Frostbite" class="planet-image">
+            <div class="planet-glow"></div>
+            <div class="planet-label">Frostbite</div>
+          </div>
+          <div class="planet planet-2" data-planet="home">
+            <img src="/planets/p2.png" alt="Home" class="planet-image">
+            <div class="planet-glow"></div>
+            <div class="planet-label">Home</div>
+          </div>
+          <div class="planet planet-3" data-planet="crystal">
+            <img src="/planets/p3.png" alt="Twitter" class="planet-image">
+            <div class="planet-glow"></div>
+            <div class="planet-label">Twitter</div>
+          </div>
+          <div class="planet planet-4" data-planet="volcano">
+            <img src="/planets/p4.png" alt="Telegram" class="planet-image">
+            <div class="planet-glow"></div>
+            <div class="planet-label">Telegram</div>
+          </div>
+          <div class="planet planet-5" data-planet="nebula">
+            <img src="/planets/p5.png" alt="Nebula" class="planet-image">
+            <div class="planet-glow"></div>
+            <div class="planet-label">Nebula</div>
+          </div>
+
+        </div>
+        
+        <!-- Information panel -->
+        <div class="info-panel">
+          <div class="status-display">
+            <h2>Pengu Pilot</h2>
+            <div class="status-info">
+              <p>Current planet: <span id="current-planet">Home</span></p>
+              <p>Speed: <span id="speed">0</span> km/h</p>
+              <p>Distance: <span id="distance">0</span> km</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Radio -->
+        <div class="radio-container" id="radio-container">
+          <img src="/radio.webp" alt="Radio" class="radio-image" id="radio-image">
+          <audio id="spacesong-audio" loop>
+            <source src="/music/spacesong.mp3" type="audio/mpeg">
+          </audio>
+          <button class="radio-toggle" id="radio-toggle">🎵</button>
+        </div>
+        
+        <!-- Help button -->
+        <div class="help-button" id="help-button">
+          <span>HELP</span>
+        </div>
+        
+        <!-- AI Agent -->
+        <div class="agent-container" id="agent-container">
+          <div class="agent-avatar">
+            <img src="/polly.png" alt="AI Agent" class="agent-image" id="agent-image">
+            <video src="/talk.mp4" alt="AI Agent Talking" class="agent-video" id="agent-video" loop muted></video>
+          </div>
+          <div class="agent-terminal" id="agent-terminal">
+            <div class="terminal-header">
+              <span>AI Assistant Terminal</span>
+              <button class="close-terminal" id="close-terminal">×</button>
+            </div>
+            <div class="terminal-content" id="terminal-content">
+              <div class="terminal-messages" id="terminal-messages">
+                <div class="message agent-message">
+                  <span class="message-text">Hello! I'm your AI assistant. How can I help you with your space journey?</span>
+                </div>
+              </div>
+              <div class="terminal-input-area">
+                <input type="text" id="terminal-input" placeholder="Type your message..." class="terminal-input">
+                <button id="send-message" class="send-button">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation effects -->
+        <div class="navigation-effects">
+          <div class="warp-effect"></div>
+          <div class="stars"></div>
+        </div>
+      </div>
+      
+      <!-- Desert Game Screen -->
+      <div class="desert-game-screen" id="desert-game-screen">
+        <div class="desert-background">
+          <img src="/lands/desert.png" alt="Desert Background" class="desert-bg-image">
+        </div>
+        
+        <!-- Jeeter Character -->
+        <div class="jeeter-character" id="jeeter-character">
+          <img src="/jeeter.png" alt="Jeeter" class="jeeter-image" id="jeeter-image">
+        </div>
+        
+        <!-- Game Dialog -->
+        <div class="game-dialog" id="game-dialog">
+          <div class="dialog-content">
+            <h3>Intruder detected!</h3>
+            <p>What do you have to say in your defense?</p>
+            <div class="dialog-options">
+              <button class="dialog-option" id="apologize-btn">😔 Apologize</button>
+              <button class="dialog-option" id="defend-btn">😤 We did nothing wrong</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Game Overlay (for the shooting game) -->
+        <div class="game-overlay" id="game-overlay">
+          <div class="game-info">
+            <div class="timer" id="game-timer">20</div>
+            <div class="score" id="game-score">Eliminados: 0</div>
+          </div>
+          <div class="game-area" id="game-area">
+            <!-- Jeeter enemies will spawn here -->
+          </div>
+        </div>
+        
+        <!-- Return to Ship Button -->
+        <div class="desert-return-button" id="desert-return-button">
+          <span>🚀 Return to Ship</span>
+        </div>
+        
+
+        
+        <!-- Matrix Screen -->
+        <div class="matrix-screen" id="matrix-screen">
+          <div class="matrix-background">
+            <div class="matrix-overlay"></div>
+            <div class="matrix-content">
+              <h2 class="matrix-title">MATRIX TERMINAL</h2>
+              <div class="matrix-terminal">
+                <div class="terminal-line">> Welcome to the Matrix...</div>
+                <div class="terminal-line">> The universe holds a secret...</div>
+                <div class="terminal-line">> Solve the riddle to reveal the truth...</div>
+                <div class="riddle-container">
+                  <p class="riddle-text">"I am not alive, but I grow; I don't have lungs, but I need air; I don't have a mouth, but water kills me. What am I?"</p>
+                  <input type="text" id="riddle-answer" placeholder="Enter your answer..." class="matrix-input">
+                  <button id="submit-riddle" class="matrix-button">SUBMIT</button>
+                </div>
+                <div id="riddle-result" class="riddle-result"></div>
+              </div>
+              <button class="return-from-matrix" onclick="showSpaceship()">🔙 Return to Ship</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Roadmap Screen -->
+        <div class="roadmap-screen" id="roadmap-screen">
+          <div class="roadmap-background">
+            <img src="/lands/home.png" alt="Roadmap Background" class="roadmap-bg-image">
+            <div class="roadmap-overlay"></div>
+            <div class="roadmap-content">
+              <h2 class="roadmap-title">🚀 PENGU PILOT ROADMAP</h2>
+              <p style="color: white; font-size: 24px; text-align: center;">TEST CONTENT - If you see this, the screen is working!</p>
+              
+              <div class="roadmap-section">
+                <h3>🌟 Current Features</h3>
+                <ul class="roadmap-list">
+                  <li>✅ Spaceship Navigation System</li>
+                  <li>✅ AI Assistant Integration</li>
+                  <li>✅ Social Media Integration (Twitter/Telegram)</li>
+                  <li>✅ Matrix Riddle Game</li>
+                  <li>✅ Desert Defense Game</li>
+                  <li>✅ Music Player</li>
+                  <li>✅ Home Station</li>
+                </ul>
+              </div>
+              
+              <div class="roadmap-section">
+                <h3>🛸 Phase 1 - New Planets & Characters</h3>
+                <ul class="roadmap-list">
+                  <li>🪐 Mars Colony - Mining mini-game</li>
+                  <li>🪐 Jupiter Station - Space trading</li>
+                  <li>🪐 Saturn Rings - Racing challenges</li>
+                  <li>👾 New Characters: Captain Nova, Engineer Zara</li>
+                  <li>👾 Alien Encounters: Friendly & Hostile</li>
+                  <li>🎮 Mini-games for each planet</li>
+                </ul>
+              </div>
+              
+              <div class="roadmap-section">
+                <h3>💎 Phase 2 - $PILOT Token Integration</h3>
+                <ul class="roadmap-list">
+                  <li>💰 In-game $PILOT token rewards</li>
+                  <li>💰 NFT Spaceships & Characters</li>
+                  <li>💰 Staking rewards for active players</li>
+                  <li>💰 Governance voting system</li>
+                  <li>💰 Marketplace for trading items</li>
+                  <li>💰 DAO community features</li>
+                </ul>
+              </div>
+              
+              <div class="roadmap-section">
+                <h3>🌌 Phase 3 - Advanced Features</h3>
+                <ul class="roadmap-list">
+                  <li>🤖 Advanced AI companions</li>
+                  <li>🌍 Multiplayer space battles</li>
+                  <li>🏗️ Player-built space stations</li>
+                  <li>🎯 Mission system with rewards</li>
+                  <li>📱 Mobile app version</li>
+                  <li>🎨 Custom ship customization</li>
+                </ul>
+              </div>
+              
+              <div class="token-info">
+                <h3>💎 $PILOT Token</h3>
+                <p>Join the Pengu Pilot community and earn rewards!</p>
+                <div class="token-stats">
+                  <div class="stat">
+                    <span class="stat-label">Total Supply:</span>
+                    <span class="stat-value">1,000,000,000 PILOT</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">Initial Price:</span>
+                    <span class="stat-value">$0.001</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-label">Launch:</span>
+                    <span class="stat-value">Q1 2024</span>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="return-from-roadmap" onclick="showSpaceship()">🔙 Return to Ship</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
