@@ -154,7 +154,7 @@ function setupEventListeners() {
           showMatrixScreen();
         } else if (targetPlanet === 'nebula') {
           console.log('Opening DexScreener');
-          window.open('https://dexscreener.com/', '_blank');
+          window.open('https://dexscreener.com/abstract/0x76bcd127d2aadc4ee541f8d525893014f11a309c', '_blank');
         } else {
           console.log('Traveling to planet:', targetPlanet);
           travelToPlanet(targetPlanet);
