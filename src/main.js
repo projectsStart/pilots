@@ -1,5 +1,5 @@
 import './style.css'
-import { config } from './config.js'
+import { config } from './config.default.js'
 
 // Planet data
 const planets = {
